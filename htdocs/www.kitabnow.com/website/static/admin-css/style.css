@@ -1,0 +1,246 @@
+/* Brand colors */
+:root {
+    --text: #211b13;
+    --text-2: #7F765E;
+    --primary: #FFEFD1;
+    --secondary: #FCFCEB;
+    --accent: #F2FFD1;
+  }
+
+
+/* Filter styling */
+.main-filter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.selector select{
+    font-size: 12px;
+    height: 30px;
+  }
+
+/* Navbar Styling */
+#navbar {
+    background-color: rgb(137, 53, 1);
+    text-decoration: none;
+}
+
+#nav-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+#nav-links a {
+    color: white;
+    text-decoration: none;
+    padding-bottom: 5px;
+    border-bottom: 2px solid white;
+}
+
+/* Form Styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form button {
+    color: white;
+    background-color: rgb(137, 53, 1);
+    font-weight: bold;
+    padding: 10px;
+    width: 100px;
+}
+
+.form-element {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-element label {
+    color: black;
+    padding: 5px;
+    border-left: 5px solid rgb(137, 53, 1);
+    background-color: rgb(255, 227, 208);
+}
+
+.form-element input {
+    padding: 10px;
+}
+
+/* Flash messages */
+.alert {
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.alert-danger {
+    background-color: lightpink;
+    border-left: 5px solid red;
+}
+
+.alert-success {
+    background-color: lightgreen;
+    border-left: 5px solid green;
+}
+
+.alert-info {
+    background-color: lightblue;
+    border-left: 5px solid blue;
+}
+
+
+/* Books Gallery */
+#gallery-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#gallery {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    height: 400px;
+    padding: 10px;
+    gap: 20px;
+    overflow-y: auto;
+
+    background-color:rgb(255, 227, 208);
+    border: 2px solid black;
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    overflow: auto;
+    width: 130px;
+    padding: 5px;
+    height: 50%;
+
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+
+
+.cover-container {
+    width: 90%;
+    height: 50%;
+}
+
+.cover-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 5px;
+}
+
+.book-info{
+    font-size: small;
+}
+
+.title{
+    font-weight: bold;
+}
+
+body{
+    background-color: whitesmoke;
+}
+/* Add book */
+.add-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(215, 222, 250);
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+
+.add-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    gap: 20px;
+    
+}
+.info{
+    display: flex;
+    flex-direction: column;
+}
+.info .title{
+    width: 100px;
+}
+.info .case{
+    width: 100%;
+}
+
+.add-info .add-btn{
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: medium;
+    color: black;
+    background-color: lightgreen;
+}
+
+.book-buttons{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 5px;
+}
+.remove-btn{
+    color: red;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+}
+.remove-btn:hover{
+    color: var(--secondary);
+    background-color: red;
+}
+.edit-btn{
+    color: rgb(77, 77, 248);
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+}
+.edit-btn:hover{
+    color: var(--secondary);
+    background-color: rgb(77, 77, 248);
+}
+
+.checkbox-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkbox{
+    width: 30px;
+    height: 30px;
+}

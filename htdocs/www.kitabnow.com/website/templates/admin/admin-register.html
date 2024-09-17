@@ -1,0 +1,24 @@
+{% extends "admin/admin-base.html" %}
+
+{% block title %}
+Sign-up
+{% endblock %}
+
+{% block content %}
+<!-- Sign-up Form -->
+<form class="container" method="POST">
+    <div class="form">
+        <h2 class="form-element">Sign Up</h2>
+        <div class="form-element">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter username">
+        </div>
+        <div class="form-element">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter password">
+        </div>
+
+        <button type="submit">Sign Up</button>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description"
+        content="كتاب ناو هي أفضل مكتبة الكترونية في المغرب، تتوفر على العديد من الكتب والروايات الأصلية و بمختلف لغات العالم, تقوم بالتوصيل لجميع مدن المغرب و توفر خدمة الدفع عند الإستلام مع ضمان 100% وإرضاء زبنائها." />
+    <meta name="language" content="ar" />
+    <meta name="logo:" content="https://www.kitabnow.com/static/images/logo.png">
+    <meta name="keywords"
+        content="كتب في القسم العام, كتب في أدب, كتب في الفلسفة, كتب في فكر, كتب في تاريخ, كتب في علم الاجتماع, كتب في سير وتراجم ومذكرات, كتب في علم النفس, كتب في التنمية الذاتية, كتب في اقتصاد, تحميل كتب في دين, كتب في المعرفة ,كتب في تنمية الذات, كتب في كتب سياسية, كتب في تكنولوجيا, كتب في إدارة, كتب في التعليم, كتب في هندسة, مكتبة كتاب ناو،التوصيل بالمجان، الدفع عند الإستلام">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YG39WR7KGD"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YG39WR7KGD');
+    </script>
+    
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="../../static/icons/favicon.ico">
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/71501f447e.js" crossorigin="anonymous"></script>
+    <!-- Website general style -->
+    <link rel="stylesheet" href="../../static/general-css/style.css" />
+    <!-- Specefic style -->
+    {% block style %} {% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body dir="rtl">
+    <div id="particles-js"></div>
+
+    <!-- Header -->
+    <header>
+        <!-- Navbar -->
+        <nav id="navbar">
+            <!-- Mobile menu button -->
+            <div class="menu-button">
+                <img class="nav-img" src="../../static/icons/menu-icon.svg" alt="cart image">
+            </div>
+
+            <div class="right-nav">
+                <!-- Navbar Logo -->
+                <div class="logo">
+                    <a href="/"><img class="logo-img" src="../../static/images/logo.png" alt="logo image"></a>
+                </div>
+
+                <!-- Navbar Links -->
+                <ul class="nav-links">
+                    <li>
+                        <a href="/">
+                            <i class="fa-solid fa-house" style="color: var(--text);"></i>
+                            <bdi>الرئيسية</bdi>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/categories">
+                            <i class="fa-regular fa-bookmark" style="color:var(--text);"></i>
+                            <bdi>الكتب</bdi>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa-regular fa-building" style="color:var(--text);"></i>
+                            <bdi>خدماتنا</bdi>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="left-navbar">
+                <div id="search" class="search-bar">
+                    <img src="../../static/icons/search-icon.svg" class="search-icon" alt="search icon"></img>
+                    <input id="search-input" type="text" placeholder="ابحث حسب العنوان، المؤلف، كلمة مفتاحية..." title="search input">
+                </div>
+                <div class="cart-shop">
+                    <a href="/cart">
+                        <img class="nav-img" src="../../static/icons/cart-icon.svg" alt="cart image">
+                        <div id="cart-number" class="cart_number"></div>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Navbar -->
+        <div class="menu">
+            <div class="search-bar">
+                <img src="../../static/icons/search-icon.svg" class="search-icon" alt="search icon"></img>
+                <input id="search-input-mobile" type="text" placeholder="ابحث حسب العنوان، المؤلف، كلمة مفتاحية..." title="search input">
+            </div>
+            <hr>
+            <ul id="menu-links">
+                <li>
+                    <a href="/" title="home">
+                        <i class="fa-solid fa-house" style="color: var(--text);"></i>
+                        <bdi>الرئيسية</bdi>
+                    </a>
+                </li>
+                <li>
+                    <a href="/categories" title="categories">
+                        <i class="fa-regular fa-bookmark" style="color:var(--text);"></i>
+                        <bdi>الكتب</bdi>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" title="services">
+                        <i class="fa-regular fa-building" style="color:var(--text);"></i>
+                        <bdi>خدماتنا</bdi>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Show Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    {% if category == 'error' %}
+    <div class="alert alert-danger" role="alert">
+        {{ message }}
+    </div>
+    {% elif category == 'success' %}
+    <div class="alert alert-success" role="alert">
+        {{ message }}
+    </div>
+    {% elif category == 'info' %}
+    <div class="alert alert-info" role="alert">
+        {{ message }}
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <!-- -------------------- -->
+
+    <!-- ! VARIABLE CONTENT -->
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+    <!-- ! ---------------- -->
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container row">
+            <div class="footer-col">
+                <h4>كتاب ناو</h4>
+                <ul>
+                    <li><a href="#">من نحن</a></li>
+                    <li><a href="#">خدماتنا</a></li>
+                    <li><a href="#">سياسة الخصوصية</a></li>
+                    <li><a href="#">إتصل بنا</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>مساعدة</h4>
+                <ul>
+                    <li><a href="#">أسئلة شائعة</a></li>
+                    <li><a href="#">الشحن</a></li>
+                    <li><a href="#">إعادة مال</a></li>
+                    <li><a href="#">طرق الدفع</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>حسابي</h4>
+                <ul>
+                    <li><a href="#">سلة المشتريات</a></li>
+                    <li><a href="#">الدفع</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>تابعنا</h4>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/kitabnow/" target="_blank" title="instagram link">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" target="_blank" title="facebook link">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://chat.whatsapp.com/JxflhbgSoPK5fVF5bD0zN3" target="_blank" title="whatsapp link">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="#"><i class="fa-brands fa-x-twitter" title="x twitter link"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+<!-- Mobile Responsive Nav bar JS -->
+<script src="../../static/general-js/nav.js"></script>
+
+<!-- Add-to-cart from any page JS -->
+<script src="../../static/general-js/add-to-cart.js"></script>
+
+<!-- Particles JS -->
+<script src="../../static/general-js/particles.js"></script>
+<script src="../../static/general-js/app.js"></script>
+
+
+{% block js %}
+
+{% endblock %}

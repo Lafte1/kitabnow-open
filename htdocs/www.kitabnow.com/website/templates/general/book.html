@@ -1,0 +1,63 @@
+{% extends "general/general-base.html" %}
+
+{% block title %}
+{{book.title}} | كتاب ناو
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="../../static/general-css/book.css" />
+<link rel="stylesheet" href="../../static/general-css/categories.css" />
+{% endblock %}
+
+{% block content %}
+
+<div id="book-frame">
+  	<div id="added_message">
+        <div class="check-img-container">
+            <img src="../../static/images/check.png" alt="check">
+        </div>
+
+        <div class="check-text">
+            <div class="check-title">رائع!</div>
+            <div class="check-quote">لقد تمت إضافة الكتاب إلى سلة المشتريات بنجاح.</div>
+        </div>
+
+        <div class="check-buttons">
+            <a class="go-to-cart-button" href="/cart">إتمام الطلب</a>
+            <button class="close-button" onclick="closePopup()">
+                مواصلة الشراء
+            </button>
+        </div>
+    </div>
+    <div id="book-right">
+        <div class="book-cover">
+            <img src="../../static/cms_books/{{book.cover}}" alt="${book.title} Cover">
+        </div>
+        <div class="book-header">التصنيفات:</div>
+        {% for category in book.categories %}
+        <p>{{category.name}}</p>
+        {% endfor %}
+        <div class="book-header">اللغة:</div>
+        <p>{{book.languages[0].name}}</p>
+        <div class="book-header">عدد الصفحات:</div>
+        <p>{{book.pages}}</p>
+    </div>
+    
+    <div id="book-left">
+        <h1>{{book.title}}</h1>
+        <h2>{{book.price}} درهم</h2>
+        <h4 style="color: var(--text-2);">للكاتب {{book.author}}</h4>
+        <p>{{book.description}}</p>
+        <button class="add-to-cart-button" onclick="addtoCart('{{book.id}}')">
+            <i class="fa-solid fa-cart-plus add-cart-icon"></i>
+            <span class="add-to-cart-text">أضف الكتاب</span>
+        </button>
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="static/general-js/book.js"></script>
+{% endblock %}

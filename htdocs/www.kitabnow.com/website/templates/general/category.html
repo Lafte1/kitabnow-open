@@ -1,0 +1,95 @@
+{% extends "general/general-base.html" %}
+
+{% block title %}
+{{category.name}} | كتاب ناو
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="../../static/general-css/categories.css" />
+<link rel="stylesheet" href="../../static/general-css/category.css" />
+{% endblock %}
+
+
+{% block content %}
+<div class="categories_navbar">
+    <div id="added_message">
+        <div class="check-img-container">
+            <img src="../../static/images/check.png" alt="check">
+        </div>
+
+        <div class="check-text">
+            <div class="check-title">رائع!</div>
+            <div class="check-quote">لقد تمت إضافة الكتاب إلى سلة المشتريات بنجاح.</div>
+        </div>
+
+        <div class="check-buttons">
+            <a class="go-to-cart-button" href="/cart">إتمام الطلب</a>
+            <button class="close-button" onclick="closePopup()">
+                مواصلة الشراء
+            </button>
+        </div>
+    </div>
+
+    <ul class="categories-links">
+        {% for categ in all_categories: %}
+        <li>
+            {% if categ.id == category.id %}
+            <a href="#" style="background-color: var(--text); color: var(--secondary);">
+                {% else %}
+                <a href="/category/{{ categ.name }}">
+                    {% endif %}
+
+                    {% if categ.id == 1 %}
+                    <i class="fa-solid fa-person-rays"></i>
+                    {% elif categ.id == 2 %}
+                    <i class="fa fa-briefcase"></i>
+                    {% elif categ.id == 3 %}
+                    <i class="fa fa-coffee"></i>
+                    {% elif categ.id == 4 %}
+                    <i class="fa fa-mosque"></i>
+                    {% elif categ.id == 5 %}
+                    <i class="fa fa-feather"></i>
+                    {% elif categ.id == 6 %}
+                    <i class="fa-solid fa-user-tie"></i>
+                    {% endif %}
+                    <bdi>{{categ.name}}</bdi>
+                </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="category">
+    <div class="category-title">
+        <h1>{{category.name}}</h1>
+    </div>
+    <div class="category-quote">
+        <p>{{category.description}}</p>
+    </div>
+    <div id="category-books">
+        {% for book in category.books %}
+        <div class="card">
+            <a class="book-cover" href="/book/{{book.title}}">
+                <img src="../../static/cms_books/{{book.cover}}" alt="${book.title} Cover">
+            </a>
+            <div class="book-title">
+                <p>{{book.title}}</p>
+            </div>
+            <div class="book-price">
+                <p>{{book.price}} درهم</p>
+            </div>
+            <button class="add-to-cart-button" onclick="addtoCart('{{book.id}}')">
+                <i class="fa-solid fa-cart-plus add-cart-icon"></i>
+                <span class="add-to-cart-text">أضف الكتاب</span>
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block js %}
+
+{% endblock %}

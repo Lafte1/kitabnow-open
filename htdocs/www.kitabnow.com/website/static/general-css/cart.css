@@ -1,0 +1,207 @@
+/* Cart Title */
+.cart-title h1{
+    width: 100%;
+    text-align: center;
+    font-weight: 300;
+}
+
+/* Cart Page */
+#cart-page{
+    display: flex;
+    flex-direction: row;
+    margin: 40px;
+}
+/* Cart books */
+#cart-container{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.cart-book{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    border-bottom: 1px solid var(--text-2);
+}
+    .cart-book-block{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+    .cart-book-header{
+        color: var(--text-2);
+        font-size: medium;
+        font-weight: 300;
+    }
+    .cart-book-content{
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        color: var(--text);
+        font-size: small;
+        font-weight: 500;
+    }
+    .cart-book-cover{
+        height: 100px;
+        width: 75px;
+        border: 1px solid var(--text-2);
+        box-shadow: 0px 1px 2px;
+    }
+        .cart-book-cover img{
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+    .cart-book-quantity{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border: 1px solid var(--text-2);
+        border-radius: 10px;
+        background-color: var(--grey);
+    }
+    .cart-book-quantity .qte-element{
+        height: 100%;
+        padding-inline: 10px;
+    }
+    .cart-book-quantity .cart-book-plus{
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+    .cart-book-quantity .cart-book-minus{
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+    }
+
+    .cart-book-remove{
+        height: 30px;
+        width: 30px;
+    }
+        .cart-book-remove img{
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+
+.cart-book-total{
+    font-size: medium;
+}
+.cart-book-total::after{
+    content: "\00a0 درهم";
+}
+
+/* Order Summary */
+#order-container{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin-right: 30px;
+}
+
+#order-summary{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    background-color: var(--secondary);
+    border: 1px solid var(--text-2);
+    border-radius: 10px;
+}
+    .order-title{
+        text-align: center;
+        border-bottom: 1px solid var(--text-2);
+        background-color: var(--primary);
+        padding: 30px;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+        font-size: large;
+        font-weight: 600;
+    }
+    .order-header{
+        font-size: medium;
+        color: var(--text-2);    
+    }
+    .order-content{
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        gap: 10px;
+    }
+    .order-case{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: smaller;
+    }
+    .order-total{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 30px;
+        border-top: 1px solid var(--text-2);
+        font-size: large;
+        font-weight: 500;
+    }
+    .checkout{
+        margin-top: 10px;
+
+        text-align: center;
+        cursor: pointer;
+    }
+    .checkout button{
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+
+        border-radius: 10px;
+        background-color: var(--accent);
+        color: var(--secondary);
+        font-size: x-large;
+        font-weight: 400;
+    }
+
+
+
+
+#order-subtotal-value::after{
+    content: "\00a0 درهم";
+}
+#order-total-value::after{
+    content: "\00a0 درهم";
+}
+
+button{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* ! Responsive */
+@media(max-width: 900px) {
+    #cart-page{
+        flex-direction: column;
+        margin: 10px;
+    }
+    #cart-container{
+        width: auto;
+    }
+    #order-container{
+        width: auto;
+        margin-right: 0px;
+        margin-top: 30px;
+    }
+  }
+
+  @media(max-width: 640px) {
+    .cart-book{
+        flex-direction: column;
+    }
+    .cart-book-block{
+        padding: 10px;
+    }
+}

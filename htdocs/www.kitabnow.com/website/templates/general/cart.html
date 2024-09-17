@@ -1,0 +1,57 @@
+{% extends "general/general-base.html" %}
+
+{% block title %}
+سلة المشتريات | كتاب ناو
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="static/general-css/cart.css" />
+{% endblock %}
+
+{% block content %}
+
+<div class="cart-title" style="margin-top: 100px;">
+    <h1>سلة المشتريات</h1>
+</div>
+
+<div id="cart-page">
+
+    <div id="cart-container">
+
+    </div>
+
+    <div id="order-container">
+        <div id="order-summary">
+            <div class="order-title">الطلب</div>
+            <div class="order-info">
+                <div class="order-content">
+                    <div class="order-case">
+                        <div class="order-header">المجموع</div>
+                        <div id="order-subtotal-value"></div>
+                    </div>
+                    <div class="order-case">
+                        <div class="order-header">الشحن</div>
+                        <div class="order-shipping-value">توصيل سريع ومجاني</div>
+                    </div>
+                </div>
+            </div>
+            <div class="order-total">
+                <div class="order-total-title">الإجمالي</div>
+                <div id="order-total-value"></div>
+            </div>
+        </div>
+        <div class="checkout">
+            <a href="/checkout">
+                <button id="checkout-btn">إتمام الطلب</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block js %}
+<script src="static/general-js/cart.js"></script>
+{% endblock %}

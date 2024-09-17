@@ -1,0 +1,37 @@
+{% extends "admin/admin-base.html" %}
+
+{% block title %}
+Orders
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="static/admin-css/orders.css" />
+{% endblock %}
+
+{% block content %}
+
+<h1 style="width: 100%; text-align: center;">Orders</h1>
+
+<div id="orders-container">
+    {% for order in orders %}
+    <div class="order">
+        <div class="order-info">
+            {{order.fname}}
+        </div>
+        <div class="order-info">
+            {{order.phone}}
+        </div>
+        <div class="order-info">
+            {{order.city}}
+        </div>
+        <div class="order-info">
+            {{order.adress}}
+        </div>
+        <div class="order-info">
+            {{order.books}}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

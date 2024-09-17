@@ -1,0 +1,260 @@
+{% extends "admin/admin-base.html" %}
+
+{% block title %}
+CMS
+{% endblock %}
+
+{% block content %}
+{% block style %} <link rel="stylesheet" href="../../static/admin-css/style.css" /> {% endblock %}
+
+
+<div id="gallery-container">
+    <div class="main-filter">
+        {% if books %}
+        <h1 id="filter_name">كل الكتب</h1>
+        {% elif category %}
+        <h1 id="filter_name">{{category.name}}</h1>
+        {% endif %}
+        <div class="selector">
+            <select class="case" name="filter" id="filter">
+                <option value="0">اختر تصنيف...</option>
+                <option value="0">كل الكتب</option>
+                {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div id="gallery">
+        {% if books %}
+        {% for book in books %}
+        <div class="book-card">
+            <div class="book-buttons">
+                <button class="remove-btn" type="button" onclick="deleteBook('{{book.id}}')">
+                    <i class="fa fa-remove"></i>
+                </button>
+                <a href="/editbook/{{ book.id }}">
+                    <button class="edit-btn">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    </button>
+                </a>
+            </div>
+            <div class="cover-container">
+                <img src="../../static/cms_books/{{book.cover}}" alt="{{book.title}} cover">
+            </div>
+            <div class="book-info">
+
+                <span class="title">التصنيف:</span>
+                {% for category in book.categories %}
+                <div class="content">- {{category.name}}</div>
+                {% endfor %}
+
+                <span class="title">العنوان: </span>
+                <div class="content">{{book.title}}</div>
+
+                <!-- Uncomment if you want to display book description
+                <span class="title">نبذة عن الكتاب: </span>
+                <div class="content">{{book.description}}</div>
+                -->
+
+                <span class="title">عدد الصفحات: </span>
+                <div class="content">{{book.pages}}</div>
+
+                <span class="title">المؤلف: </span>
+                <div class="content">{{book.author}}</div>
+
+                <span class="title">السعر: </span>
+                <div class="content">{{book.price}} درهم</div>
+
+                <span class="title">اللغة:</span>
+                {% for language in book.languages %}
+                <div class="content">{{language.name}}</div>
+                {% endfor %}
+
+            </div>
+        </div>
+        {% endfor %}
+        {% elif category %}
+        {% for book in category.books %}
+        <div class="book-card">
+            <div class="book-buttons">
+                <button class="remove-btn" type="button" onclick="deleteBook('{{book.id}}')">
+                    <i class="fa fa-remove" style="color:var(--white);"></i>
+                </button>
+                <a href="/editbook/{{ book.id }}">
+                    <button class="edit-btn">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    </button>
+                </a>
+            </div>
+            <div class="cover-container">
+                <img src="../../static/cms_books/{{book.cover}}" alt="{{book.title}} cover">
+            </div>
+            <div class="book-info">
+                <span class="title">التصنيف:</span>
+                {% for category in book.categories %}
+                <div class="content">- {{category.name}}</div>
+                {% endfor %}
+
+                <span class="title">العنوان: </span>
+                <div class="content">{{book.title}}</div>
+
+                <!-- Uncomment if you want to display book description
+                <span class="title">نبذة عن الكتاب: </span>
+                <div class="content">{{book.description}}</div>
+                -->
+                
+                <span class="title">عدد الصفحات: </span>
+                <div class="content">{{book.pages}}</div>
+
+                <span class="title">المؤلف: </span>
+                <div class="content">{{book.author}}</div>
+
+                <span class="title">السعر: </span>
+                <div class="content">{{book.price}} درهم</div>
+
+                <span class="title">اللغة:</span>
+                {% for language in book.languages %}
+                <div class="content">{{language.name}}</div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+
+<div class="add-container">
+    <div class="main-title">
+        <h1>أضف كتاب:</h1>
+    </div>
+    <form class="add-info" method="POST" enctype="multipart/form-data">
+        <div class="info">
+            <div class="title">العنوان:</div>
+            <input class="case" type="text" name="title" id="title"></input>
+        </div>
+
+        <div class="info">
+            <div class="title">نبذة عن الكتاب:</div>
+            <textarea class="case" name="description" id="description"></textarea>
+        </div>
+
+        <div class="info">
+            <div class="title">عدد الصفحات:</div>
+            <input class="case" type="number" name="pages" id="pages"></input>
+        </div>
+
+        <div class="info">
+            <div class="title">المؤلف:</div>
+            <input class="case" type="text" name="author" id="author"></input>
+        </div>
+
+        <div class="info">
+            <div class="title">السعر:</div>
+            <input class="case" type="text" name="price" id="price"></input>
+        </div>
+        <div class="info">
+            <div class="title">الغلاف:</div>
+            <input class="case" type="file" name="cover" id="cover"></input>
+        </div>
+
+        <div class="info">
+            <div class="title">التصنيفات:</div>
+            {% for category in categories %}
+            <div class="checkbox-container">
+                <input class="checkbox" type="checkbox" id="{{category.name}}" name="category"
+                    value="{{category.name}}">
+                <div>{{category.name}}</div>
+                <div class="book-buttons">
+                    <button class="remove-btn" type="button" onclick="deleteCategory('{{category.id}}')">
+                        <i class="fa fa-remove" style="color:var(--white);"></i>
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="info">
+            <div class="title">اللغات:</div>
+            {% for language in languages %}
+            <div class="checkbox-container">
+                <input class="checkbox" type="checkbox" id="{{language.name}}" name="language"
+                    value="{{language.name}}">
+                <div>{{language.name}}</div>
+                <div class="book-buttons">
+                    <button class="remove-btn" type="button" onclick="deleteLanguage('{{language.id}}')">
+                        <i class="fa fa-remove" style="color:var(--white);"></i>
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <button class="add-btn" type="submit" name="add-book">أضف الكتاب!</button>
+    </form>
+</div>
+
+<div class="add-container">
+    <div class="main-title">
+        <h1>أضف تصنيف:</h1>
+    </div>
+    <form class="add-info" method="POST">
+        <div class="info">
+            <div class="title">اسم التصنيف:</div>
+            <input class="case" type="text" name="category" id="category"></textarea>
+        </div>
+        <div class="info">
+            <div class="title">وصف التصنيف:</div>
+            <input class="case" type="text" name="description" id="description"></input>
+        </div>
+        <button class="add-btn" type="submit" name="add-category">أضف التصنيف!</button>
+    </form>
+</div>
+
+<div class="add-container">
+    <div class="main-title">
+        <h1>أضف لغة:</h1>
+    </div>
+    <form class="add-info" method="POST">
+        <div class="info">
+            <div class="title">اسم اللغة:</div>
+            <input class="case" type="text" name="language" id="language"></textarea>
+        </div>
+        <button class="add-btn" type="submit" name="add-language">أضف اللغة!</button>
+    </form>
+</div>
+
+<div class="add-container">
+    <div class="main-title">
+        <h1>أضف مؤلف:</h1>
+    </div>
+    <form class="add-info" method="POST">
+        <div class="info">
+            <div class="title">اسم المؤلف:</div>
+            <input class="case" type="text" name="author" id="author"></textarea>
+        </div>
+        <div class="info">
+            <div class="title">نبذة عن المؤلف:</div>
+            <textarea class="case" name="author_description" id="author_description"></textarea>
+        </div>
+        <button class="add-btn" type="submit" name="add-author">أضف المؤلف!</button>
+    </form>
+</div>
+
+<div style="display: flex; flex-direction: column; width: 100%; align-items: center; justify-content: center;">
+  	<h2>Authors: (thanay hhhh)</h2>
+	{% for author in authors %}
+  		<button class="remove-btn" type="button" onclick="deleteAuthor('{{author.id}}')">
+            <i class="fa fa-remove"></i>
+        </button>
+    	<p>{{author.name}}</p>
+      	<p>{{author.description}}</p>
+  		<p>------<p>
+	{% endfor %}
+</div>
+
+
+{% endblock %}

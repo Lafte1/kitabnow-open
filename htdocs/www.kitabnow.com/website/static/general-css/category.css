@@ -1,0 +1,64 @@
+/* Categories navbar */
+.categories_navbar{
+    margin-top: 120px;
+}
+.categories-links{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    background-color: var(--primary);
+    padding-block: 15px;
+}
+.categories-links li {
+    list-style-type: none;
+  }
+  
+  .categories-links li a {
+    font-size: small;
+    color: var(--text);
+    background-color: var(--secondary);
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    padding-inline: 10px;
+    padding-block: 5px;
+    text-decoration: none;
+  }
+
+
+/* Category books listing */
+
+.category{
+    margin-inline: 50px;
+    width: auto;
+}
+
+#category-books{
+    flex-wrap: wrap;
+    height: auto;
+    width: 100%;
+    overflow: auto;
+    justify-content:space-around;
+    background-color: var(--primary);
+}
+
+.card{
+    height: 350px;
+}
+
+
+
+/* ! Responsive */
+
+@media(max-width: 768px) {
+    .category{
+        margin-inline: 15px;
+    }
+  }

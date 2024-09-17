@@ -1,0 +1,42 @@
+{% extends "admin/admin-base.html" %}
+
+{% block title %}
+Edit
+{% endblock %}
+
+{% block content %}
+
+<div class="add-container">
+    <h1 style="width: 100%; text-align: center;">تعديل الكتاب:</h1>
+
+    <form class="add-info" method="POST" enctype="multipart/form-data">
+        <div class="info">
+            <div class="title">العنوان:</div>
+            <input class="case" type="text" name="title" id="title" value="{{book.title}}"></input>
+        </div>
+
+        <div class="info">
+            <div class="title">نبذة عن الكتاب:</div>
+            <textarea class="case" name="description" id="description">{{book.description}}</textarea>
+        </div>
+
+        <div class="info">
+            <div class="title">عدد الصفحات:</div>
+            <input class="case" type="number" name="pages" id="pages" value="{{book.pages}}"></input>
+        </div>
+
+        <div class="info">
+            <div class="title">المؤلف:</div>
+            <input class="case" type="text" name="author" id="author" value="{{book.author}}"></input>
+        </div>
+
+        <div class="info">
+            <div class="title">السعر:</div>
+            <input class="case" type="text" name="price" id="price" value="{{book.price}}"></input>
+        </div>
+
+        <button class="add-btn" type="submit">تأكيد</button>
+    </form>
+    
+</div>
+{% endblock %}

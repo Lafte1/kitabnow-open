@@ -1,0 +1,28 @@
+{% extends "admin/admin-base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<h1>Hello {{user.username}} !</h1>
+
+<div>
+    <h2>Notes:</h2>
+</div>
+<ul id="notes">
+    {% for note in user.notes %}
+    <li>
+        {{note.data}}
+        <button type="button" onclick="deleteNote('{{note.id}}')">X</button>
+    </li>
+    {% endfor %}
+</ul>
+
+<form method="POST" class="form">
+    <textarea name="note" id="note"></textarea>
+    <br>
+    <button type="submit">Add Note</button>
+
+</form>
+{% endblock %}

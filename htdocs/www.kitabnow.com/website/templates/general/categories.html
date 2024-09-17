@@ -1,0 +1,40 @@
+{% extends "general/general-base.html" %}
+
+{% block title %}
+الأقسام | كتاب ناو
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="static/general-css/categories.css" />
+{% endblock %}
+
+{% block content %}
+
+<div id="categories-frame">
+    <div id="added_message">
+        <div class="check-img-container">
+            <img src="static/images/check.png" alt="check">
+        </div>
+
+        <div class="check-text">
+            <div class="check-title">رائع!</div>
+            <div class="check-quote">لقد تمت إضافة الكتاب إلى سلة المشتريات بنجاح.</div>
+        </div>
+
+        <div class="check-buttons">
+            <a class="go-to-cart-button" href="/cart">إتمام الطلب</a>
+            <button class="close-button" onclick="closePopup()">
+                مواصلة الشراء
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+
+{% block js %}
+<script src="static/general-js/categories.js"></script>
+{% endblock %}

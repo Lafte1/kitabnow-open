@@ -1,0 +1,70 @@
+#book-frame{
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+}
+#book-right{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    padding: 40px;
+    background-color: var(--primary);
+}
+.book-cover{
+    width: 100%;
+}
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border: 1px solid var(--text);
+    border-radius: 3px;
+}
+.book-header{
+    text-align: right;
+    font-size: 18px;
+    font-weight: 600;
+}
+.book-text{
+    text-align: right;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+#book-left{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    gap: 10px;
+}
+
+.add-to-cart-button{
+    width: 200px;
+    height: 50px;
+    margin-bottom: 30px;
+}
+
+
+/* ! Responsive */
+
+@media(max-width: 768px) {
+    #book-frame{
+        flex-direction: column;
+        align-items: center;
+    }
+    #book-right{
+        width: 100%;
+        padding-inline: 10px;
+        padding-block: 40px;
+        background-color: var(--primary);
+    }
+    .book-cover{
+        width: 100%;
+    }
+    
+    #book-left{
+        width: auto;
+        padding: 10px;
+    }
+  }

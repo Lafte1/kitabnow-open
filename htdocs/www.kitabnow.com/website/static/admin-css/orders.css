@@ -1,0 +1,16 @@
+#orders-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px;
+    padding: 20px;
+    background-color: var(--primary);
+}
+
+.order{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: var(--secondary);
+}

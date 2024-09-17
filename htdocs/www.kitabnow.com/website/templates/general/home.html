@@ -1,0 +1,140 @@
+{% extends "general/general-base.html" %}
+
+{% block title %}
+كتاب ناو
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="static/general-css/home.css" />
+{% endblock %}
+
+{% block content %}
+
+<!-- ! Landing Frame -->
+<div id="landing-frame">
+
+    <div class="image-container">
+        <img src="../../static/images/books-tree.png" alt="">
+    </div>
+
+    <div class="text-container">
+        <div class="landing-title">
+            <h1>مكتبة كتاب ناو</h1>
+        </div>
+        <div class="landing-mid-title">
+            <p>أفضل وأشهر الكتب والروايات بنقرة واحدة فقط مع خدمة التوصيل إلى المنزل والدفع عند الاستلام</p>
+        </div>
+        <div class="landing-paragraph">
+            آلاف الكتب والروايات، المال والأعمال، التنمية البشرية وتطوير الذات، الفلسفة، الخيال العلمي وغيرها بإنتظارك...
+        </div>
+
+        <a class="cta-btn" href="/categories">إبدأ الآن!</a>
+    </div>
+
+</div>
+
+
+<!-- ! Best Sellers Frame -->
+<div id="bestsellers-frame">
+    <div class="hero-title">
+        <h1>الكتب الأكثر مبيعا</h1>
+    </div>
+    <div id="bestsellers-container">
+        <div class="category-side">
+            <div class="selector">
+                <select class="case" name="category" id="category" title="select category">
+                    {% for category in categories: %}
+                    <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div id="cat-desc"></div>
+        </div>
+
+        <div id="filtered-cards" class="cards-side">
+            <!-- Card 1 -->
+            <a class="card">
+                <img>
+                <div class="card-desc">
+                    <div class="title"></div>
+                    <div class="price"></div>
+                </div>
+            </a>
+
+            <!-- Card 2 -->
+            <a class="card">
+                <img>
+                <div class="card-desc">
+                    <div class="title"></div>
+                    <div class="price"></div>
+                </div>
+            </a>
+
+            <!-- Card 3 -->
+            <a class="card">
+                <img>
+                <div class="card-desc">
+                    <div class="title"></div>
+                    <div class="price"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <a class="cta-btn" href="/categories">جميع التصنيفات</a>
+
+</div>
+
+
+<!-- ! Whatsapp Book Club Frame -->
+<div class="invitation-frame">
+    <div class="invitation-container">
+        <div class="invitation-image">
+            <img src="static/images/home/book-club.svg" alt="book club image">
+        </div>
+        <div class="invitation-text">
+            <div class="invitation-title">
+                انضم إلى نادي محبي القراءة والكتب!
+            </div>
+            <div class="invitation-content">
+                انضم إلى نادي الكتب حيث يتبادل عشاق الكتب والقراءة توصيات قيمة للكتب، مشاركة مراجعات وأشياء
+                أخرى...
+                <br>
+                فرصة استكشاف كتب وروايات جديدة، تكوين صداقات جديدة مع محبي القراءة الذين
+                يشاركونك نفس الشغف.
+                <br>
+                انضم الآن وكن عضوا يحتفي بالكلمة المكتوبة!
+            </div>
+            <div class="invitation-link">
+                <a href="https://chat.whatsapp.com/JxflhbgSoPK5fVF5bD0zN3" target="_blank">انضم الآن!</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ! Quotes Frame -->
+<div id="quotes-frame">
+    <div class="hero-title">
+        <h1>اقتباسات:</h1>
+    </div>
+    <div class="quote">
+        <p class="citation">"كن سيد الكتب لا عبدها، اقرأ لتعيش ولا تعش لتقرأ"</p>
+        <p class="author">إدوارد ليتون</p>
+    </div>
+    <div class="quote">
+        <p class="citation">"إنهم يريدون أن يفتحوا العالم وهم عاجزون عن فتح كتاب"</p>
+        <p class="author">نزار قباني</p>
+    </div>
+    <div class="quote">
+        <p class="citation">"إذا كان الكتاب الذي نقرأه لا يوقظنا بخبطة على جمجمتنا، فلماذا نقرأ الكتاب إذن؟... على
+            الكتاب أن يكون كالفأس التي تحطم البحر المتجمد في داخلنا"</p>
+        <p class="author">فرانز كافكا</p>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="static/general-js/home.js"></script>
+{% endblock %}

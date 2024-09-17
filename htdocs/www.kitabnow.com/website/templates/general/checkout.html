@@ -1,0 +1,57 @@
+{% extends "general/general-base.html" %}
+
+{% block title %}
+إنهاء الطلب | كتاب ناو
+{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="static/general-css/checkout.css" />
+{% endblock %}
+
+{% block content %}
+
+<div class="checkout-title" style="margin-top: 100px; margin-bottom: 30px;">
+    <h1>معلومات الشحن</h1>
+</div>
+
+
+<form id="checkout-form" method="POST" enctype="multipart/form-data" onsubmit="refreshCart()">
+    <div class="checkout-info">
+        <div class="checkout-subtitle">
+            <h2>الرجاء ملء الخانات أسفله لضمان توصيل الكتب إلى عنوانك بأمان.</h2>
+        </div>
+        <div class="checkout-case">
+            <label for="fname">الإسم: *</label>
+            <input type="text" id="fname" name="fname" placeholder="Ayoub / أيوب" required>
+        </div>
+
+        <div class="checkout-case">
+            <label for="phone">رقم الهاتف: *</label>
+            <input type="tel" id="phone" name="phone" placeholder="0640514758" required>
+        </div>
+
+        <div class="checkout-case">
+            <label for="city">المدينة: *</label>
+            <input type="text" id="city" name="city" placeholder="Rabat, Casablanca..." required>
+        </div>
+
+        <div class="checkout-case">
+            <label for="adress">عنوان الشارع / الحي: *</label>
+            <input type="text" id="adress" name="adress" placeholder="Avenue Omar Ibn Khattab, 32, Etage 1, appt 3"
+                required>
+            <p style="text-align: left; font-size: x-small;">نحترم خصوصيتك ونضمن سرية معلوماتك</p>
+
+            <input id="orderbooks" type="hidden" name="orderbooks" value=''>
+        </div>
+
+    </div>
+    <button id="checkout-btn" type="submit" name="checkout-btn">إكمال الطلب</button>
+</form>
+
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="static/general-js/checkout.js"></script>
+{% endblock %}
